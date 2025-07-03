@@ -5,7 +5,7 @@ alwaysApply: false
 ---
 
 1. **Locate template**  
-   Copy `.cursor/.templates/rule.mdc` → `.cursor/guides/<area>/<slug>.mdc`.
+   Copy `.rules/.templates/rule.mdc` → `.rules/guides/<area>/<slug>.mdc`.
 
 2. **Fill front-matter**  
    * `description:` - one-line summary.  

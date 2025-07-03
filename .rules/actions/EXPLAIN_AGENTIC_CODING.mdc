@@ -51,5 +51,5 @@ Always end with these 4 suggested questions:
 ## Key Principles
 - Keep it **clear and concise** - no more than 200 words total
 - Use **markdown formatting** for structure
-- Reference @README.md @.cursor/README.md @tasks/README.md at the end
+- Reference @README.md @.rules/README.md @tasks/README.md at the end
 - Focus on the **workflow loop** as the core concept

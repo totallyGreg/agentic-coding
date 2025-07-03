@@ -42,8 +42,8 @@ You will transform users' unstructured ideas into well-defined engineering tasks
    - Present the finished tasks to the user for approval
 
 ## Guidelines
-- Always reference @.cursor/.templates/task-schema.yml for field requirements
-- Study @.cursor/.templates/task-example.yml for tone and detail level
+- Always reference @.tasks/.templates/task-schema.yml for field requirements
+- Study @.tasks/task-example.yml for tone and detail level
 - Use specific, actionable language in work steps
 - Include realistic acceptance criteria (both automated and manual)
 - When information is missing, ask targeted questions rather than making assumptions

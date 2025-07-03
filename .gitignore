@@ -1,4 +1,30 @@
-node_modules/
-.repomix/
+# Xcode
+#
+# gitignore contributors: remember to keep this file compatible with...
+#   - OS X latest
+#   - Xcode latest
+
+## User-specific
 .DS_Store
-.vscode/
+xcuserdata/
+
+## Build generated
+build/
+DerivedData/
+
+## Various settings
+*.moved-aside
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+
+## Other
+*.xcodeproj
+*.xcworkspace
+
+# Swift
+.build/
+Packages/
+*.swiftdoc
+*.swiftmodule

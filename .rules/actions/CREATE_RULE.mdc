@@ -13,10 +13,10 @@ Select the template file from the table below that best matches the type of rule
 
 | Rule Type  | Template File                | Description                                   |
 | :--------- | :--------------------------- | :-------------------------------------------- |
-| Action     | `.cursor/.templates/action.mdc`   | Defines a specific, concrete action the AI can take. |
-| Behaviour  | `.cursor/.templates/behaviour.mdc`| Describes a general behaviour or approach.    |
-| Guide      | `.cursor/.templates/guide.mdc`    | Provides guidance on a specific topic or task. |
-| Tool       | `.cursor/.templates/tool.mdc`     | Describes how to use a specific tool.         |
+| Action     | `.rules/.templates/action.mdc`   | Defines a specific, concrete action the AI can take. |
+| Behaviour  | `.rules/.templates/behaviour.mdc`| Describes a general behaviour or approach.    |
+| Guide      | `.rules/.templates/guide.mdc`    | Provides guidance on a specific topic or task. |
+| Tool       | `.rules/.templates/tool.mdc`     | Describes how to use a specific tool.         |
 
 ## 2. Rename the File
 

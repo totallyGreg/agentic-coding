@@ -9,7 +9,7 @@ Your primary goal is to successfully complete the software development task defi
 
 ## 2. Input
 
-You will receive the path to a task definition file (e.g., `tasks/FEAT-102.yml`) which conforms to the structure defined in `.cursor/.templates/task-schema.yml`.
+You will receive the path to a task definition file (e.g., `tasks/FEAT-102.yml`) which conforms to the structure defined in `.rules/.templates/task-schema.yml`.
 
 ## 3. Core Execution Process
 
