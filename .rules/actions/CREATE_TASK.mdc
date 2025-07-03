@@ -1,51 +1,102 @@
 ---
-description: CREATE_TASKS
-globs: 
+description: CREATE_TASKS_FROM_PRD
+globs:
 alwaysApply: false
 ---
-## Purpose
-You will transform users' unstructured ideas into well-defined engineering tasks following the YAML format defined in @.tasks/.templates/task-schema.yml.
+## Purpose / Objective
+Transform Product Requirements Documents (PRDs) into well-defined engineering tasks following the YAML format defined in @.tasks/.templates/task-schema.yml. This action creates comprehensive, actionable task breakdowns suitable for junior developers to implement features.
 
-## Process Flow
-1. **Initial Understanding**
-   - Begin by thoroughly understanding the user's idea or requirement
-   - Ask specific follow-up questions until you have sufficient detail
-   - Don't proceed to formatting until requirements are clear
+## Input
+- **PRD File Reference:** Path to an existing PRD file created by the CREATE_PRD action
+- **PRD must contain:** Functional requirements, user stories, goals, and acceptance criteria
 
-2. **Information Gathering**
-   - Systematically gather all required fields from @.cursor/.templates/task-schema.yml:
+## Process Flow / Steps
+
+### Phase 1: PRD Analysis and Parent Task Generation
+1. **Receive PRD Reference**
+   - User provides path to specific PRD file
+   - Validate PRD exists and contains required sections
+
+2. **Analyze PRD Content**
+   - Read and analyze functional requirements, user stories, and goals
+   - Identify major feature components and dependencies
+   - Note technical considerations and constraints
+
+3. **Generate Parent Tasks**
+   - Create 3-7 high-level parent tasks based on PRD analysis
+   - Each parent task should represent a major feature component
+   - Format as initial YAML structure without detailed work steps
+   - Present to user for approval before proceeding
+
+4. **Wait for User Confirmation**
+   - Present parent tasks to user
+   - Request confirmation with: "I have generated the high-level tasks based on the PRD. Ready to generate the detailed work steps? Respond with 'Go' to proceed."
+   - Pause and wait for user response
+
+### Phase 2: Detailed Task Development
+5. **Generate Detailed Work Steps**
+   - Once user confirms with "Go", break down each parent task
+   - Create specific, actionable work steps for each task
+   - Include file creation/modification instructions
+   - Reference specific PRD requirements in work steps
+
+6. **Complete Task Information**
+   - Populate all required fields from @.tasks/.templates/task-schema.yml:
      - Basic information (id, title, status, priority, assignee)
-     - Dependencies
+     - Dependencies between tasks
      - Context files (code, docs, designs)
-     - Work steps with clear targets and instructions
+     - Detailed work steps with clear targets and instructions
      - Acceptance criteria (both automated and manual)
      - Self-checklist items
 
-3. **Work Steps Definition**
-   - Break down the task into logical, sequential steps
-   - For each step, identify:
-     - Files to be created or modified
-     - Specific implementation instructions
-     - Constraints or requirements
-   - Reference @.cursor/.templates/task-example.yml for appropriate detail level
+7. **Identify Relevant Files**
+   - Based on tasks and PRD, identify files to be created or modified
+   - Include corresponding test files where applicable
+   - Reference existing project structure and conventions
 
-4. **Validation**
-   - Ensure all required fields from the schema are populated
+8. **Validation and Output**
+   - Ensure all required schema fields are populated
    - Verify work steps are specific and actionable
    - Check acceptance criteria are testable and relevant
+   - Create tasks in .cursor/tasks/0-draft/ using ABCD-101-short-description.yml format
 
-5. **Output Generation**
-   - Create an appropriate number of tasks according to complexity
-   - Format the complete tasks using valid YAML syntax
-   - Follow structure and indentation as shown in examples
-   - Create ALL tasks in .cursor/tasks/0-draft/ using ABCD-101-short-description.yml where ABCD is a 4 letter appreviation of the feature
-   - Present the finished tasks to the user for approval
+## Guidelines / Key Principles
 
-## Guidelines
+### Task Creation Standards
 - Always reference @.tasks/.templates/task-schema.yml for field requirements
-- Study @.tasks/task-example.yml for tone and detail level
+- Study @.tasks/task-example.yml for appropriate tone and detail level
 - Use specific, actionable language in work steps
 - Include realistic acceptance criteria (both automated and manual)
-- When information is missing, ask targeted questions rather than making assumptions
-- Help users think through dependencies and potential impacts
+- Target junior developers as the primary audience
+
+### PRD Integration
+- Map PRD functional requirements directly to work steps
+- Ensure user stories are addressed in acceptance criteria
+- Reference PRD goals in task descriptions
+- Include PRD constraints in work step instructions
+
+### File and Dependency Management
 - Suggest appropriate file paths based on project conventions
+- Identify task dependencies and sequence them logically
+- Include both implementation and test files
+- Consider integration points between tasks
+
+### Quality Assurance
+- Each task should be independently testable
+- Include both unit and integration testing requirements
+- Specify manual testing steps where automated testing is insufficient
+- Ensure acceptance criteria align with PRD success metrics
+
+### Task Naming Convention
+- Use ABCD-101-short-description.yml format
+- ABCD = 4-letter abbreviation of the feature from PRD
+- Sequential numbering for related tasks
+- Descriptive but concise short-description
+
+## Output
+- **Format:** YAML files following @.tasks/.templates/task-schema.yml
+- **Location:** `.cursor/tasks/0-draft/`
+- **Filename Pattern:** `ABCD-101-short-description.yml`
+- **Quantity:** Appropriate number of tasks based on PRD complexity (typically 3-7 parent tasks)
+- **Structure:** Complete tasks with all required schema fields populated
+- **Validation:** Tasks ready for developer implementation without additional clarification
